@@ -2,7 +2,7 @@ var main = document.querySelector("#main");
 var oLis = document.querySelectorAll("#list>li");
 var winW = document.documentElement.clientWidth;
 var winH = document.documentElement.clientHeight;
-var bell = document.querySelector("#bell");
+var music = document.querySelector("#music");
 var desW = 640;
 var desH = 960;
 if(winW/winH<desW/desH){//按照高度比例去缩放
@@ -13,7 +13,6 @@ if(winW/winH<desW/desH){//按照高度比例去缩放
 window.setTimeout(function(){
     oLis[0].firstElementChild.id="a1";
 },1000);
-music.play();
 
 
 [].forEach.call(oLis,function(){
@@ -26,6 +25,7 @@ music.play();
 
 function start(e){
     this.startX = e.changedTouches[0].pageY;
+    music.play();
 }
 function move(e){
     this.flag = true;

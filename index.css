@@ -1,6 +1,8 @@
 *{
     margin: 0;
-    padding:0
+    padding:0;
+-webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
 }
 html,body{
     width: 100%;
@@ -18,7 +20,18 @@ html,body{
     -webkit-transform-origin:top;
     transform-origin: top;
 }
-#list{height: 100%}
+#list{
+    height: 100%
+}
+.boom{
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    width: 100px;
+    height: 100px;
+    z-index: 90;
+}
+
 #list li{
     width: 100%;
     height: 100%;
@@ -30,7 +43,7 @@ html,body{
     z-index: 5;
 }
 #list li:nth-child(1){
-    background-image:url(images/1.jpg) ;
+    background-image:url(images/cubeBg.jpg) ;
 }
 #list li:nth-child(2){
     background-image:url(images/2.jpg) ;
@@ -41,42 +54,47 @@ html,body{
 #list li:nth-child(4){
     background-image:url(images/phoneBg.jpg) ;
 }
-.a1 {
-    position: absolute;
-    top: 22%;
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    color: #ccc;
-}
-.a1 p{
-    font-family: consolas;
-    margin-bottom: 20px;
-}
 .pic{
     position: absolute;
-    left: 43%;
-    top: -59%;
+    left: 35%;
+    top: 10%;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
     box-shadow: 0px 0px 20px 10px  #ccc ;
+}
+.person{
+    position: absolute;
+    left: 33%;
+    top:33%;
+}
+.content_one{
+    position: absolute;
+    top: 70%;
+    left: 21%;
 }
 .pic img{
     display: block;
     width: 100%;
     height: 100%;
 }
-.a1 div:nth-child(odd){
+.content_one p{
+    font-family: bold;
+    width:420px;
+   color:black;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+.a1 .content_one p:nth-child(odd){
     -webkit-transform: translate(500px,0);
     transform:translate(500px,0);
 }
-.a1 div:nth-child(even){
+.a1 .content_one p:nth-child(even){
     -webkit-transform: translate(-500px,0);
     transform:translate(-500px,0);
 }
-#a1 div{
+#a1 .content_one p{
     -webkit-transform: translate(0,0);
     transform: translate(0,0);
     -webkit-transition:1s ease-out;
@@ -248,25 +266,53 @@ html,body{
         -webkit-transform: scale(1);
     }
 }
-.musicHead{
-    height:40px;
-    width:40px;
-    top: 5%;
-    background: url("images/music.png")no-repeat 0 0;
-    z-index: 88;
-    border-radius: 50%;
-    margin-left:10px;
-    margin-top: 4px;
 
-}
 .musicBox{
     position: absolute;
     top: 5%;
     right:10%;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     z-index: 88;
     background: white;
     border-radius: 50%;
+    text-align: center;
+}
+.musicBox span{
+    display: block;
+    margin-left: 5px;
+    background: url("images/music.png")no-repeat 0 0;
+    height:40px;
+    width:40px;;
+}
+.move {
+    -webkit-animation: musicMove 1s linear infinite;
+    animation: musicMove 1s linear infinite;
+
+    /*当帧动画结束的时候,让当前的元素停留在最后一帧的位置*/
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes musicMove {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes musicMove {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
